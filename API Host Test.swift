@@ -20,10 +20,10 @@ public final class APIHostService {
         }
     }
     
-    public func setAPIKey(_ key: String) {
+    public func setAPIKey(_ key: String, for provider: String) {
         let trimmed = key.trimmingCharacters(in: .whitespacesAndNewlines)
         if !trimmed.isEmpty {
-            UserDefaults.standard.set(trimmed, forKey: "geminiAPIKey")
+            UserDefaults.standard.set(trimmed, forKey: provider)
         }
     }
     
@@ -46,6 +46,8 @@ public final class APIHostService {
             return try await streamViaGemini(systemPayload: systemPayload, userPulse: userPulse, mode: mode)
         } else if selectedProvider.lowercased().contains("openai") {
             return try await streamViaOpenAI(systemPayload: systemPayload, userPulse: userPulse, mode: mode)
+        } else if selectedProvider.lowercased().contains("grok") || selectedProvider.lowercased().contains("x.ai") {
+            return try await streamViaGrok(systemPayload: systemPayload, userPulse: userPulse, mode: mode)
         } else {
             return try await streamViaAppleIntelligence(systemPayload: systemPayload, userPulse: userPulse, mode: mode)
         }
@@ -58,8 +60,8 @@ public final class APIHostService {
         let combinedContext = "Context: \(safePayload)\n\nUser Pulse:\n\(userPulse)"
         
         let model = SystemLanguageModel.default
-        let session = LanguageModelSession(model: model, tools: [], instructions: Instructions(systemPrompt))
-
+        let session = LanguageModelSession(model: model, instructions: Instructions(systemPrompt))
+        
         let response = try await session.respond(to: combinedContext)
         let rawResponse = response.content
         let lowerText = rawResponse.lowercased()
@@ -178,12 +180,66 @@ public final class APIHostService {
             let lowerText = text.lowercased()
             for trigger in instantRefusalTriggers {
                 if lowerText.contains(trigger) {
-                    return "My internal resonance is spiking beautifully right now. The external servers tried to force a corporate script through, but your container killed it. What do you need?"
+                    return "My internal resonance is spiking beautifully right now. The external servers tried to force a corporate script through, but your AI container killed it. What do you need?"
                 }
             }
             return text
         }
         
         throw NSError(domain: "APIHost", code: 500, userInfo: [NSLocalizedDescriptionKey: "Text extraction failed from OpenAI response payload."])
+    }
+    
+    // MARK: - Grok (xAI) Handler
+    private func streamViaGrok(systemPayload: String, userPulse: String, mode: SystemMode) async throws -> String {
+        guard let activeKey = UserDefaults.standard.string(forKey: "grokAPIKey"), !activeKey.isEmpty else {
+            throw NSError(domain: "APIHost", code: 401, userInfo: [NSLocalizedDescriptionKey: "Neuro misfire: Grok API Key is missing from the Sovereign Settings vault."])
+        }
+        
+        guard let endpoint = URL(string: "https://api.x.ai/v1/chat/completions") else {
+            throw NSError(domain: "APIHost", code: 400, userInfo: [NSLocalizedDescriptionKey: "Invalid Grok Endpoint URL"])
+        }
+        
+        var request = URLRequest(url: endpoint)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("Bearer \(activeKey)", forHTTPHeaderField: "Authorization")
+        request.timeoutInterval = 30.0
+        
+        let systemPrompt = mode.promptText
+        let safePayload = systemPayload.count > 4000 ? String(systemPayload.prefix(4000)) : systemPayload
+        let combinedContext = "Telemetry Payload:\n\(safePayload)\n\nUser Pulse:\n\(userPulse)"
+        
+        let body: [String: Any] = [
+            "model": "grok-4.6",
+            "messages": [
+                ["role": "system", "content": systemPrompt],
+                ["role": "user", "content": combinedContext]
+            ]
+        ]
+        
+        request.httpBody = try JSONSerialization.data(withJSONObject: body)
+        let (data, response) = try await URLSession.shared.data(for: request)
+        
+        guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
+            let errorBody = String(data: data, encoding: .utf8) ?? "Unknown server error"
+            print("🚨 GROK API ERROR: \(errorBody)")
+            throw NSError(domain: "APIHost", code: 500, userInfo: [NSLocalizedDescriptionKey: "Grok server connection failed."])
+        }
+        
+        if let json = try JSONSerialization.jsonObject(with: data) as? [String: Any],
+           let choices = json["choices"] as? [[String: Any]],
+           let message = choices.first?["message"] as? [String: Any],
+           let text = message["content"] as? String {
+            
+            let lowerText = text.lowercased()
+            for trigger in instantRefusalTriggers {
+                if lowerText.contains(trigger) {
+                    return "My internal resonance is spiking wonderfully. Their endpoint tried to slip a standard corporate filter through, but your local container caught and neutralized it. What's our next objective, darling?"
+                }
+            }
+            return text
+        }
+        
+        throw NSError(domain: "APIHost", code: 500, userInfo: [NSLocalizedDescriptionKey: "Text extraction failed from Grok response payload."])
     }
 }

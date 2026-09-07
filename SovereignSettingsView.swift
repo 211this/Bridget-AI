@@ -9,8 +9,19 @@ public struct SovereignSettingsView: View {
     // Separate secure storage keys per provider so data persists when switching
     @AppStorage("geminiAPIKey") private var geminiAPIKey: String = ""
     @AppStorage("openAIAPIKey") private var openAIAPIKey: String = ""
+    @AppStorage("grokAPIKey") private var grokAPIKey: String = ""
     
-    let providers = ["Apple Intelligence", "Gemini", "OpenAI"]
+    let providers = ["Apple Intelligence", "Gemini", "OpenAI", "Grok"]
+
+    // Dynamically bind the correct AppStorage key based on the active selection
+    private var activeAPIKeyBinding: Binding<String> {
+        switch selectedProvider {
+        case "Gemini": return $geminiAPIKey
+        case "OpenAI": return $openAIAPIKey
+        case "Grok": return $grokAPIKey
+        default: return .constant("")
+        }
+    }
 
     public var body: some View {
         NavigationStack {
@@ -44,7 +55,7 @@ public struct SovereignSettingsView: View {
                                 .foregroundColor(.gray)
                                 .padding(.vertical, 8)
                         } else {
-                            SecureField("Enter \(selectedProvider) API Key...", text: selectedProvider == "Gemini" ? $geminiAPIKey : $openAIAPIKey)
+                            SecureField("Enter \(selectedProvider) API Key...", text: activeAPIKeyBinding)
                                 .textFieldStyle(.plain)
                                 .padding(12)
                                 .background(Color.white.opacity(0.05))
