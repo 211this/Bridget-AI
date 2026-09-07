@@ -3,17 +3,65 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 90;
+	objectVersion = 110;
 	objects = {
+
+/* Begin PBXBuildFile section */
+		652DC7CB304EF98100C9D273 /* API Host Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DC7CA304EF98100C9D273 /* API Host Test.swift */; };
+		652DC7DD304EFA0200C9D273 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 652DC7DC304EFA0200C9D273 /* Assets.xcassets */; };
+		652DC7DF304EFA1D00C9D273 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DC7DE304EFA1D00C9D273 /* ContentView.swift */; };
+		65931EDE304F069D0045B207 /* SovereignSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65931EDD304F069D0045B207 /* SovereignSettingsView.swift */; };
+		65931EE5304F0C030045B207 /* BridgetPulseREecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65931EE4304F0C030045B207 /* BridgetPulseREecord.swift */; };
+		65931EF2304F18240045B207 /* BridgetApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DC7DA304EF9F800C9D273 /* BridgetApp.swift */; };
+		65931EF5304F193D0045B207 /* API Host Test.swift in Sources */ = {isa = PBXBuildFile; fileRef = 652DC7CA304EF98100C9D273 /* API Host Test.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		652DC7FB304F032800C9D273 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolder = None;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		000000000000000000000120 /* Bridget PR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bridget PR.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		652DC7CA304EF98100C9D273 /* API Host Test.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API Host Test.swift"; sourceTree = "<group>"; };
+		652DC7DA304EF9F800C9D273 /* BridgetApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgetApp.swift; sourceTree = "<group>"; };
+		652DC7DC304EFA0200C9D273 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		652DC7DE304EFA1D00C9D273 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		652DC7FD304F032800C9D273 /* BridgetCLT */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = BridgetCLT; sourceTree = BUILT_PRODUCTS_DIR; };
+		65931EDD304F069D0045B207 /* SovereignSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SovereignSettingsView.swift; sourceTree = "<group>"; };
+		65931EE4304F0C030045B207 /* BridgetPulseREecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BridgetPulseREecord.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		652DC804304F033D00C9D273 /* Exceptions for "BridgetCLT" folder in "Bridget PR" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				AppLunalithBrain.swift,
+				LunalithBrain.swift,
+				LunalithLogView.swift,
+			);
+			target = 000000000000000100000000 /* Bridget PR */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		000000000000000000000010 /* Bridget PR */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = "Bridget PR";
+			sourceTree = "<group>";
+		};
+		652DC7FE304F032800C9D273 /* BridgetCLT */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				652DC804304F033D00C9D273 /* Exceptions for "BridgetCLT" folder in "Bridget PR" target */,
+			);
+			path = BridgetCLT;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -24,13 +72,25 @@
 			files = (
 			);
 		};
+		652DC7FA304F032800C9D273 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			files = (
+			);
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		000000000000000000000001 = {
 			isa = PBXGroup;
 			children = (
+				652DC7DC304EFA0200C9D273 /* Assets.xcassets */,
+				652DC7DE304EFA1D00C9D273 /* ContentView.swift */,
+				652DC7DA304EF9F800C9D273 /* BridgetApp.swift */,
+				65931EE4304F0C030045B207 /* BridgetPulseREecord.swift */,
+				65931EDD304F069D0045B207 /* SovereignSettingsView.swift */,
+				652DC7CA304EF98100C9D273 /* API Host Test.swift */,
 				000000000000000000000010 /* Bridget PR */,
+				652DC7FE304F032800C9D273 /* BridgetCLT */,
 				000000000000000000000020 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -39,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				000000000000000000000120 /* Bridget PR.app */,
+				652DC7FD304F032800C9D273 /* BridgetCLT */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -64,6 +125,24 @@
 			productReference = 000000000000000000000120 /* Bridget PR.app */;
 			productType = "com.apple.product-type.application";
 		};
+		652DC7FC304F032800C9D273 /* BridgetCLT */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 652DC801304F032800C9D273 /* Build configuration list for PBXNativeTarget "BridgetCLT" */;
+			buildPhases = (
+				652DC7F9304F032800C9D273 /* Sources */,
+				652DC7FA304F032800C9D273 /* Frameworks */,
+				652DC7FB304F032800C9D273 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			fileSystemSynchronizedGroups = (
+				652DC7FE304F032800C9D273 /* BridgetCLT */,
+			);
+			name = BridgetCLT;
+			productName = BridgetCLT;
+			productReference = 652DC7FD304F032800C9D273 /* BridgetCLT */;
+			productType = "com.apple.product-type.tool";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -71,11 +150,15 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2630;
+				LastSwiftUpdateCheck = 2700;
 				LastUpgradeCheck = 2700;
 				TargetAttributes = {
 					000000000000000100000000 = {
 						CreatedOnToolsVersion = 26.3;
+						LastSwiftMigration = 2700;
+					};
+					652DC7FC304F032800C9D273 = {
+						CreatedOnToolsVersion = 27.0;
 					};
 				};
 			};
@@ -88,12 +171,13 @@
 			);
 			mainGroup = 000000000000000000000001;
 			minimizedProjectReferenceProxies = 1;
-			preferredProjectObjectVersion = 90;
+			preferredProjectObjectVersion = 110;
 			productRefGroup = 000000000000000000000020 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				000000000000000100000000 /* Bridget PR */,
+				652DC7FC304F032800C9D273 /* BridgetCLT */,
 			);
 		};
 /* End PBXProject section */
@@ -102,6 +186,7 @@
 		000000000000000140000000 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			files = (
+				652DC7DD304EFA0200C9D273 /* Assets.xcassets in Resources */,
 			);
 		};
 /* End PBXResourcesBuildPhase section */
@@ -110,6 +195,17 @@
 		000000000000000120000000 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			files = (
+				652DC7CB304EF98100C9D273 /* API Host Test.swift in Sources */,
+				65931EE5304F0C030045B207 /* BridgetPulseREecord.swift in Sources */,
+				65931EDE304F069D0045B207 /* SovereignSettingsView.swift in Sources */,
+				652DC7DF304EFA1D00C9D273 /* ContentView.swift in Sources */,
+				65931EF2304F18240045B207 /* BridgetApp.swift in Sources */,
+			);
+		};
+		652DC7F9304F032800C9D273 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			files = (
+				65931EF5304F193D0045B207 /* API Host Test.swift in Sources */,
 			);
 		};
 /* End PBXSourcesBuildPhase section */
@@ -250,12 +346,16 @@
 		000000000000000111000000 /* Debug configuration for PBXNativeTarget "Bridget PR" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S7VR3MCB63;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -269,7 +369,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "devplaceholder.$(PROJECT_UNIQUE_VALUE:identifier).$(PRODUCT_NAME:identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.absolutesynthesis.BridgetPR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -278,6 +378,8 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridget PR/Bridget PR-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
@@ -287,12 +389,16 @@
 		000000000000000112000000 /* Release configuration for PBXNativeTarget "Bridget PR" */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = S7VR3MCB63;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_PREVIEWS = YES;
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.lifestyle";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -306,7 +412,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "devplaceholder.$(PROJECT_UNIQUE_VALUE:identifier).$(PRODUCT_NAME:identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.absolutesynthesis.BridgetPR;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				REGISTER_APP_GROUPS = YES;
 				SDKROOT = auto;
@@ -315,9 +421,40 @@
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Bridget PR/Bridget PR-Bridging-Header.h";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2,7";
+			};
+			name = Release;
+		};
+		652DC802304F032800C9D273 /* Debug configuration for PBXNativeTarget "BridgetCLT" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S7VR3MCB63;
+				ENABLE_HARDENED_RUNTIME = YES;
+				NEW_SETTING = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		652DC803304F032800C9D273 /* Release configuration for PBXNativeTarget "BridgetCLT" */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S7VR3MCB63;
+				ENABLE_HARDENED_RUNTIME = YES;
+				NEW_SETTING = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};
@@ -337,6 +474,14 @@
 			buildConfigurations = (
 				000000000000000111000000 /* Debug configuration for PBXNativeTarget "Bridget PR" */,
 				000000000000000112000000 /* Release configuration for PBXNativeTarget "Bridget PR" */,
+			);
+			defaultConfigurationName = Release;
+		};
+		652DC801304F032800C9D273 /* Build configuration list for PBXNativeTarget "BridgetCLT" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				652DC802304F032800C9D273 /* Debug configuration for PBXNativeTarget "BridgetCLT" */,
+				652DC803304F032800C9D273 /* Release configuration for PBXNativeTarget "BridgetCLT" */,
 			);
 			defaultConfigurationName = Release;
 		};
