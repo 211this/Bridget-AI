@@ -1,4 +1,4 @@
-**Resonance Engine (Bridget-AI)**  
+Bridget-AI 
 Advanced Algorithmic Specification & System Architecture
 
 ### 1. Executive Summary
