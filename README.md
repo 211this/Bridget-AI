@@ -2,7 +2,7 @@ Bridget-AI
 Advanced Algorithmic Specification & System Architecture
 
 ### 1. Executive Summary
-The Resonance Engine is a local-first, provider-agnostic affective state tracking system written in Swift. It is designed to maintain consistent emotional and conversational continuity across multi-turn interactions while operating under real-world resource and API constraints.
+Bridget AI is a local-first, provider-agnostic affective state tracking system written in Swift. It is designed to maintain consistent emotional and conversational continuity across multi-turn interactions while operating under real-world resource and API constraints.
 
 The system prioritizes state integrity and coherence. External content filters and moderation layers are treated as environmental constraints rather than obstacles; the engine adapts to them without losing historical context or introducing progressive degradation (“drift”).
 
